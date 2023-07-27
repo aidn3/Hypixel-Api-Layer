@@ -1,0 +1,320 @@
+<style>
+    @media print {
+        *,
+        *:before,
+        *:after {
+            background: transparent !important;
+            color: #000 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+
+        a[href^="#"]:after,
+        a[href^="javascript:"]:after {
+            content: "";
+        }
+
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+
+        img {
+            max-width: 100% !important;
+        }
+
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+    }
+
+    html {
+        font-size: 12px;
+    }
+
+    @media screen and (min-width: 32rem) and (max-width: 48rem) {
+        html {
+            font-size: 15px;
+        }
+    }
+
+    @media screen and (min-width: 48rem) {
+        html {
+            font-size: 16px;
+        }
+    }
+
+    body {
+        line-height: 1.85;
+    }
+
+    p,
+    .air-p {
+        font-size: 1rem;
+        margin-bottom: 1.3rem;
+    }
+
+    h1,
+    .air-h1,
+    h2,
+    .air-h2,
+    h3,
+    .air-h3,
+    h4,
+    .air-h4 {
+        margin: 1.414rem 0 .5rem;
+        font-weight: inherit;
+        line-height: 1.42;
+    }
+
+    h1,
+    .air-h1 {
+        margin-top: 0;
+        font-size: 3.998rem;
+    }
+
+    h2,
+    .air-h2 {
+        font-size: 2.827rem;
+    }
+
+    h3,
+    .air-h3 {
+        font-size: 1.999rem;
+    }
+
+    h4,
+    .air-h4 {
+        font-size: 1.414rem;
+    }
+
+    h5,
+    .air-h5 {
+        font-size: 1.121rem;
+    }
+
+    h6,
+    .air-h6 {
+        font-size: .88rem;
+    }
+
+    small,
+    .air-small {
+        font-size: .707em;
+    }
+
+    /* https://github.com/mrmrs/fluidity */
+
+    img,
+    canvas,
+    iframe,
+    video,
+    svg,
+    select,
+    textarea {
+        max-width: 100%;
+    }
+
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+
+    body {
+        color: #444;
+        font-family: 'Open Sans', Helvetica, sans-serif;
+        font-weight: 300;
+        margin: 6rem auto 1rem;
+        max-width: 48rem;
+        text-align: center;
+    }
+
+    img {
+        border-radius: 50%;
+        height: 200px;
+        margin: 0 auto;
+        width: 200px;
+    }
+
+    a,
+    a:visited {
+        color: #3498db;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+        color: #2980b9;
+    }
+
+    pre {
+        background-color: #fafafa;
+        padding: 1rem;
+        text-align: left;
+    }
+
+    blockquote {
+        margin: 0;
+        border-left: 5px solid #7a7a7a;
+        font-style: italic;
+        padding: 1.33em;
+        text-align: left;
+    }
+
+    ul,
+    ol,
+    li {
+        text-align: left;
+    }
+
+    p {
+        color: #777;
+    }
+</style><h1 id="error-codes">Error Codes</h1>
+<p>Other status codes are proxied from hypixel.</p>
+<table>
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Message</th>
+        <th>Reason</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>404</td>
+        <td>Endpoint not implemented</td>
+        <td>Some default Hypixel endpoints are disabled to prevent abuse</td>
+    </tr>
+    <tr>
+        <td>405</td>
+        <td>Only GET method is allowed</td>
+        <td>Methods such as POST, PUT, DELETE are disabled</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>Parameter(s) required for this endpoint</td>
+        <td>Parameter such as <code>profile</code>, <code>uuid</code>, etc.</td>
+    </tr>
+    <tr>
+        <td>414</td>
+        <td>Parameter(s) value is too long</td>
+        <td>If the parameter exceeds 36 character. This usually means the value is malformed. The longest existing Parameter is UUID which is 36 character.</td>
+    </tr>
+    <tr>
+        <td>500</td>
+        <td>Internal Error encountered. Admins have been notified</td>
+        <td>An exception appeared that has not been expected</td>
+    </tr>
+    </tbody>
+</table>
+<h1 id="endpoints">Endpoints</h1>
+<ul>
+    <li>Endpoints such as <code>/guild</code> are disabled by default due to it being mostly used by backends bots</li>
+    <li>Endpoints such as <code>/status</code> and <code>/skyblock/auction</code> are disabled by default due to its heavy usage in automated
+        tracking
+        bots</li>
+</ul>
+<table>
+    <thead>
+    <tr>
+        <th>Endpoint</th>
+        <th>Parameters</th>
+        <th>Cache</th>
+        <th>Cache Reason</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>/player</code></td>
+        <td><code>uuid</code></td>
+        <td>12 Hours</td>
+        <td>Endpoint mostly used to check overall stats/rank</td>
+    </tr>
+    <tr>
+        <td><code>/recentgames</code></td>
+        <td><code>uuid</code></td>
+        <td>60 Minutes</td>
+        <td>Endpoint used to view an overview of a player. Stalking isn&#39;t required</td>
+    </tr>
+    <tr>
+        <td><code>/skyblock/profiles</code></td>
+        <td><code>uuid</code></td>
+        <td>5 Minutes</td>
+        <td>Used completively for setup checking when partying</td>
+    </tr>
+    <tr>
+        <td><code>/skyblock/profile</code></td>
+        <td><code>profile</code>&#39;s id</td>
+        <td>30 Minutes</td>
+        <td>Longer than <code>profiles</code>. Due to its potential abuse with auctions api</td>
+    </tr>
+    <tr>
+        <td><code>/skyblock/museum</code></td>
+        <td><code>profile</code>&#39;s id</td>
+        <td>12 Hours</td>
+        <td>Endpoint used to have an overview of stats</td>
+    </tr>
+    <tr>
+        <td><code>/skyblock/bingo</code></td>
+        <td><code>uuid</code></td>
+        <td>2 Hours</td>
+        <td>Can be used to track each other progress. Too fast update will result in abuse with automated trackers</td>
+    </tr>
+    </tbody>
+</table>
+<h1 id="headers">Headers</h1>
+<ul>
+    <li>Extra headers are returned to indicate server health</li>
+    <li>No extra headers required to fetch data</li>
+</ul>
+<table>
+    <thead>
+    <tr>
+        <th>Header</th>
+        <th>Explanation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>X-age</code></td>
+        <td>How old the returned data. Timestamp in milliseconds. Useful to indicate the cache age. Current timestamp will be returned if the data is newly fetched.</td>
+    </tr>
+    <tr>
+        <td><code>X-name</code></td>
+        <td>Server name.</td>
+    </tr>
+    <tr>
+        <td><code>X-version</code></td>
+        <td>Server version.</td>
+    </tr>
+    </tbody>
+</table>

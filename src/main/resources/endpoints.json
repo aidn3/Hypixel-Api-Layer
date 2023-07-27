@@ -1,0 +1,38 @@
+{
+  "/player": {
+    "maxLife": 43200000,
+    "params": [
+      "uuid"
+    ]
+  },
+  "/recentgames": {
+    "maxLife": 3600000,
+    "params": [
+      "uuid"
+    ]
+  },
+  "/skyblock/profiles": {
+    "maxLife": 300000,
+    "params": [
+      "uuid"
+    ]
+  },
+  "/skyblock/profile": {
+    "maxLife": 1800000,
+    "params": [
+      "profile"
+    ]
+  },
+  "/skyblock/museum": {
+    "maxLife": 43200000,
+    "params": [
+      "profile"
+    ]
+  },
+  "/skyblock/bingo": {
+    "maxLife": 7200000,
+    "params": [
+      "uuid"
+    ]
+  }
+}
